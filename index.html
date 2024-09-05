@@ -286,6 +286,7 @@
 
           datas.forEach(async (data) => {
             if (typeof data.image != typeof undefined) {
+              doc.addPage();
               doc.addImage(data.image, 'PNG', 10, 10, data.width/10, data.height/6);
             }
           })
