@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>file.d documentation</title>
+  <!-- <link rel="icon" type="image/png" href="/file.d/static/file.d.png" /> -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <style>
+    div.signature-box {
+      display: table-caption;
+    }
+
+    html,
+    body {
+      overflow-x: hidden;
+      /* Prevent scroll on narrow devices */
+    }
+
+    body {
+      /* padding-top: 56px; */
+    }
+
+    @media (max-width: 991.98px) {
+      .offcanvas-collapse {
+        position: fixed;
+        top: 56px;
+        /* Height of navbar */
+        bottom: 0;
+        left: 100%;
+        width: 100%;
+        padding-right: 1rem;
+        padding-left: 1rem;
+        overflow-y: auto;
+        visibility: hidden;
+        background-color: #343a40;
+        transition: transform .3s ease-in-out, visibility .3s ease-in-out;
+      }
+
+      .offcanvas-collapse.open {
+        visibility: visible;
+        transform: translateX(-100%);
+      }
+    }
+
+    .nav-scroller .nav {
+      color: rgba(255, 255, 255, .75);
+    }
+
+    .nav-scroller .nav-link {
+      padding-top: .75rem;
+      padding-bottom: .75rem;
+      font-size: .875rem;
+      color: #6c757d;
+    }
+
+    .nav-scroller .nav-link:hover {
+      color: #007bff;
+    }
+
+    .nav-scroller .active {
+      font-weight: 500;
+      color: #343a40;
+    }
+
+    .bg-purple {
+      background-color: #6f42c1;
+    }
+
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+
+    .b-example-divider {
+      width: 100%;
+      height: 3rem;
+      background-color: rgba(0, 0, 0, .1);
+      border: solid rgba(0, 0, 0, .15);
+      border-width: 1px 0;
+      box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+    }
+
+    .b-example-vr {
+      flex-shrink: 0;
+      width: 1.5rem;
+      height: 100vh;
+    }
+
+    .bi {
+      vertical-align: -.125em;
+      fill: currentColor;
+    }
+
+    .nav-scroller {
+      position: relative;
+      z-index: 2;
+      height: 2.75rem;
+      overflow-y: hidden;
+    }
+
+    .nav-scroller .nav {
+      display: flex;
+      flex-wrap: nowrap;
+      padding-bottom: 1rem;
+      margin-top: -1px;
+      overflow-x: auto;
+      text-align: center;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .btn-bd-primary {
+      --bd-violet-bg: #712cf9;
+      --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+
+      --bs-btn-font-weight: 600;
+      --bs-btn-color: var(--bs-white);
+      --bs-btn-bg: var(--bd-violet-bg);
+      --bs-btn-border-color: var(--bd-violet-bg);
+      --bs-btn-hover-color: var(--bs-white);
+      --bs-btn-hover-bg: #6528e0;
+      --bs-btn-hover-border-color: #6528e0;
+      --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+      --bs-btn-active-color: var(--bs-btn-hover-color);
+      --bs-btn-active-bg: #5a23c8;
+      --bs-btn-active-border-color: #5a23c8;
+    }
+
+    .bd-mode-toggle {
+      z-index: 1500;
+    }
+
+    .bd-mode-toggle .dropdown-menu .active .bi {
+      display: block !important;
+    }
+  </style>
+</head>
+
+<body class="bg-body-tertiary">
+  <header>
+    <div class="nav-scroller bg-body shadow-sm">
+      <nav class="nav" aria-label="Secondary navigation">
+        <a class="nav-link active" aria-current="page" href="./index.html">Dashboard</a>
+        <a class="nav-link" href="#">Documenti</a>
+        <a class="nav-link" href="#">Autorizzazioni</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="my-3 p-3 bg-body rounded shadow-sm">
+            <form>
+              <div class="row">
+                <div class="col">
+                  <div class="mb-3">
+                    <label for="idCardFront" class="form-label">Carta identita fronte</label>
+                    <input class="form-control file" type="file" id="idCardFront" name="idCardFront"
+                      accept="application/pdf,image/*,capture=camera">
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="mb-3">
+                    <label for="idCardRear" class="form-label">Carta identita retro</label>
+                    <input class="form-control file" type="file" id="idCardRear" name="idCardRear"
+                      accept="application/pdf,image/*,capture=camera">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <div class="mb-3">
+                    <label for="fiscalCodeFront" class="form-label">Codice fiscale fronte</label>
+                    <input class="form-control file" type="file" id="fiscalCodeFront" name="fiscalCodeFront"
+                      accept="application/pdf,image/*,capture=camera">
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="mb-3">
+                    <label for="fiscalCodeRear" class="form-label">Codice fiscale retro</label>
+                    <input class="form-control file" type="file" id="fiscalCodeRear" name="fiscalCodeRear"
+                      accept="application/pdf,image/*,capture=camera">
+                  </div>
+                </div>
+              </div>
+              <div class="signature-box border">
+                <canvas id="signature-pad" class="signature-pad" width=400 height=200></canvas>
+              </div>
+              <br />
+              <button type="submit" class="btn btn-primary">
+                <span class="load-status d-none">
+                  <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                  <span role="status">Generazione pdf in corso...</span>
+                </span>
+                <span class="default-status">
+                  Salva
+                </span>
+              </button>
+              <button type="reset" class="reset invisible">reset</button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.1.7/dist/signature_pad.umd.min.js"></script>
+  <script>
+    const { jsPDF } = window.jspdf;
+
+    const canvas = document.getElementById("signature-pad");
+    const signaturePad = new SignaturePad(canvas);
+    let dataText = [];
+
+    async function fetchImageData() {
+      const idCardRear = document.getElementById('idCardRear');
+      const cfRear = document.getElementById('fiscalCodeRear');
+
+      let imagePromise = [];
+      if (idCardRear.files.length) {
+        const formIdCardRear = new FormData();
+        formIdCardRear.append('image', idCardRear.files[0]);
+        const fetchIdCardData = await fetch('https://image-process.mdariful.com/mrz', {
+          method: 'POST',
+          body: formIdCardRear,
+          headers: {
+            'mode':'cors'
+          }
+        }).then(response => response.json());
+        imagePromise.push(fetchIdCardData)
+      }
+
+
+      if (cfRear.files.length) {
+        const formcfRear = new FormData();
+        formcfRear.append('image', cfRear.files[0]);
+        const fetchFiscalCodeData = await fetch('https://image-process.mdariful.com/barcode', {
+          method: 'POST',
+          body: formcfRear,
+          headers: {
+            'mode':'cors'
+          }
+        }).then(response => response.json());
+        imagePromise.push(fetchFiscalCodeData)
+      }
+
+
+      document.querySelectorAll('.file').forEach(function (file) {
+        if (file.files.length) {
+          imagePromise.push(processImage(file))
+        }
+      })
+      const doc = new jsPDF();
+      Promise.all(imagePromise).then((datas) => {
+        try {
+          var width = doc.internal.pageSize.getWidth();
+          var height = doc.internal.pageSize.getHeight();
+          datas.forEach(async (data) => {
+            if (typeof data.birthDate != typeof undefined) {
+              setIdCard(data)
+            } else if (typeof data.data != typeof undefined) {
+              setCfCard(data);
+            }
+          })
+          doc.text(dataText, 10, 10);
+          var imgData = signaturePad.toDataURL('image/png');
+          doc.addImage(imgData, 'PNG', 40, 40, 75, 37);
+
+          datas.forEach(async (data) => {
+            if (typeof data.image != typeof undefined) {
+              doc.addImage(data.image, 'PNG', 10, 10, data.width/10, data.height/6);
+            }
+          })
+          doc.save("documento.pdf");
+          resetForm();
+        } catch (error) {
+          console.log(error);
+        }
+      })
+    }
+
+    async function processImage(image) {
+      const form = new FormData();
+      form.append('image', image.files[0], image.files[0].name);
+      return await fetch('https://image-process.mdariful.com/process-image', {
+        method: 'POST',
+        body: form,
+        headers: {
+            'mode':'cors'
+          }
+      }).then((response) => response.json())
+    }
+
+    function setIdCard(ciData) {
+
+      dataText.push(`Carta d'identità numero: ${ciData.number}`);
+      dataText.push(`Validità: ${ciData.validDate}`);
+      dataText.push(`Nome: ${ciData.name}`);
+      dataText.push(`Cognome: ${ciData.surname}`);
+      dataText.push(`Data di nascita: ${ciData.birthDate}`);
+    }
+
+    function setCfCard(cfData) {
+      dataText.push(`Codice Fiscale: ${cfData.data}`);
+    }
+
+    function setSignatureToPdf() {
+
+    }
+
+    function generatePdf() {
+
+    }
+
+
+    document.querySelector('form').addEventListener('submit', async function (e) {
+      e.preventDefault();
+      try {
+        loading();
+        fetchImageData();
+      } catch (error) {
+        window.alert(error);
+        console.log(error);
+      }
+    })
+    function loading() {
+      document.querySelector('.btn').classList.add('disabled');
+      document.querySelector('.default-status').classList.add('d-none');
+      document.querySelector('.load-status').classList.remove('d-none');
+    }
+    function resetForm() {
+      document.querySelector('.reset').click();
+      document.querySelector('.btn').classList.remove('disabled');
+      document.querySelector('.default-status').classList.remove('d-none');
+      document.querySelector('.load-status').classList.add('d-none');
+      signaturePad.clear();
+      dataText = [];
+    }
+  </script>
+</body>
+
+</html>
