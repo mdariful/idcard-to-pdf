@@ -166,14 +166,14 @@
           <div class="my-3 p-3 bg-body rounded shadow-sm">
             <form>
               <div class="row">
-                <div class="col">
+                <div class="col-md-6 col-12">
                   <div class="mb-3">
                     <label for="idCardFront" class="form-label">Carta identita fronte</label>
                     <input class="form-control file" type="file" id="idCardFront" name="idCardFront"
                       accept="application/pdf,image/*,capture=camera">
                   </div>
                 </div>
-                <div class="col">
+                <div class="col-md-6 col-12">
                   <div class="mb-3">
                     <label for="idCardRear" class="form-label">Carta identita retro</label>
                     <input class="form-control file" type="file" id="idCardRear" name="idCardRear"
@@ -182,14 +182,14 @@
                 </div>
               </div>
               <div class="row">
-                <div class="col">
+                <div class="col-md-6 col-12">
                   <div class="mb-3">
                     <label for="fiscalCodeFront" class="form-label">Codice fiscale fronte</label>
                     <input class="form-control file" type="file" id="fiscalCodeFront" name="fiscalCodeFront"
                       accept="application/pdf,image/*,capture=camera">
                   </div>
                 </div>
-                <div class="col">
+                <div class="col-md-6 col-12">
                   <div class="mb-3">
                     <label for="fiscalCodeRear" class="form-label">Codice fiscale retro</label>
                     <input class="form-control file" type="file" id="fiscalCodeRear" name="fiscalCodeRear"
@@ -197,8 +197,12 @@
                   </div>
                 </div>
               </div>
-              <div class="signature-box border">
-                <canvas id="signature-pad" class="signature-pad" width=400 height=200></canvas>
+              <br />
+              <div class="col-md-6 col-12">
+                <label class="form-label">Firma</label>
+                <div class="signature-box border">
+                  <canvas id="signature-pad" class="signature-pad" width="320" height="200"></canvas>
+                </div>
               </div>
               <br />
               <button type="submit" class="btn btn-primary">
